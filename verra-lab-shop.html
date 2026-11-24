@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verra Lab – Research Peptides</title>
+<style>
+:root{--bg:#fff;--soft:#f5f6f4;--ink:#1d2528;--mute:#667075;--line:#dfe3e1;--brand:#1f5f4a;--brand2:#174a39;--sale:#b3261e}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;line-height:1.25}
+em{font-style:normal}
+.w{max-width:1100px;margin:0 auto;padding:0 20px}
+
+.ann{background:var(--brand);color:#fff;font-size:13px;text-align:center;padding:7px 12px}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:22px;height:58px}
+.logo{font-weight:700;font-size:20px;color:var(--brand);margin-right:auto;letter-spacing:-.2px}
+.menu{display:flex;gap:20px;font-size:14px}
+.menu a{color:var(--ink);padding:4px 0;border-bottom:2px solid transparent}
+.menu a:hover{border-color:var(--brand)}
+.lang{display:flex;font-size:12px}
+.lang button{border:1px solid var(--line);background:#fff;color:var(--mute);padding:4px 9px;cursor:pointer;font:inherit}
+.lang button:first-child{border-radius:4px 0 0 4px}
+.lang button:last-child{border-radius:0 4px 4px 0;border-left:0}
+.lang button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn{display:inline-block;border:0;background:var(--brand);color:#fff;font:inherit;font-size:14px;font-weight:600;padding:9px 18px;border-radius:4px;cursor:pointer;text-align:center}
+.btn:hover{background:var(--brand2)}
+.btn.line{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+.btn.line:hover{background:var(--soft)}
+.btn.sm{padding:7px 12px;font-size:13px}
+
+.hero{margin:22px 0 0;background:var(--soft);border-radius:6px;display:grid;grid-template-columns:1fr 280px;gap:30px;align-items:center;padding:30px 34px}
+.hero h1{font-size:clamp(24px,3.4vw,34px);font-weight:700;margin-bottom:10px}
+.hero p{color:var(--mute);margin:0 0 18px;max-width:34em}
+.hero img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0 0;font-size:13px}
+.trust div{border:1px solid var(--line);border-radius:6px;padding:10px 12px;display:flex;gap:8px;align-items:center}
+.trust b{color:var(--brand);font-size:16px}
+
+section{padding:38px 0 0}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.sh h2{font-size:22px}
+.sh p{margin:0;color:var(--mute);font-size:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-size:13px;padding:6px 14px;border-radius:4px;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{border:1px solid var(--line);border-radius:6px;padding:10px;cursor:pointer;display:flex;flex-direction:column;background:#fff}
+.card:hover{box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.card .ph{aspect-ratio:1/1;width:100%;object-fit:cover;border-radius:4px;background:var(--soft);margin-bottom:10px}
+.card small{color:var(--mute);font-size:12px}
+.card h3{font-size:15px;font-weight:600;margin:2px 0 1px}
+.card .sp{color:var(--mute);font-size:13px;margin:0}
+.card .pu{font-size:12px;color:var(--brand);margin:6px 0 0}
+.card .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px}
+.card .price{font-size:17px;font-weight:700}
+.notice{color:var(--mute);font-size:12.5px;margin:18px 0 0;border-left:3px solid var(--line);padding-left:12px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.blk{border:1px solid var(--line);border-radius:6px;padding:20px 22px}
+.blk h3{font-size:17px;margin-bottom:4px}
+.blk p{margin:0 0 10px;color:var(--mute);font-size:14px}
+.blk ul{margin:0;padding-left:18px;font-size:14px}
+.blk li{padding:2px 0}
+table.cmp{width:100%;border-collapse:collapse;font-size:14px;border:1px solid var(--line)}
+.cmp th,.cmp td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.cmp th{background:var(--soft);font-weight:600}
+.cmp td:last-child,.cmp th:last-child{background:#f1f7f4}
+details{border-bottom:1px solid var(--line);padding:12px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:15px}
+details p{margin:8px 0 0;color:var(--mute);font-size:14px;max-width:46em}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:20px;border:1px solid var(--line);border-radius:6px;padding:24px;font-size:14px}
+.contact h2{font-size:20px;margin-bottom:12px}
+
+footer{margin-top:50px;background:var(--soft);border-top:1px solid var(--line);padding:30px 0 24px;font-size:13px;color:var(--mute)}
+.fc{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px}
+footer b{display:block;color:var(--ink);margin-bottom:6px}
+footer a{display:block;padding:2px 0}footer a:hover{color:var(--brand)}
+
+.layer{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40;display:none}.layer.on{display:block}
+.panel{position:absolute;top:0;right:0;bottom:0;width:min(380px,100%);background:#fff;padding:18px 20px;display:flex;flex-direction:column;overflow-y:auto}
+.x{align-self:flex-end;background:none;border:0;color:var(--ink);font-size:26px;cursor:pointer;line-height:1}
+.panel h2{font-size:20px;margin:0 0 8px}
+.line{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.thumb{width:48px;height:48px;border-radius:4px;object-fit:cover;background:var(--soft);flex-shrink:0}
+.qty{display:inline-flex;align-items:center;gap:8px;margin-top:4px}
+.qty button{width:22px;height:22px;border-radius:3px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;line-height:1}
+.panel .ph{width:100%;max-width:220px;aspect-ratio:1/1;object-fit:cover;border-radius:4px;background:var(--soft);margin:6px auto 12px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+.tbl td{padding:7px 0;border-bottom:1px solid var(--line)}.tbl td:first-child{color:var(--mute);width:38%}
+.tag{display:inline-block;font-size:12px;color:var(--brand);border:1px solid var(--line);border-radius:3px;padding:1px 8px;margin-bottom:6px}
+
+@media(max-width:860px){.menu{display:none}.grid{grid-template-columns:repeat(3,1fr)}.trust{grid-template-columns:1fr 1fr}.hero{grid-template-columns:1fr;padding:22px}.hero img{max-width:260px}.two,.contact,.fc{grid-template-columns:1fr}}
+@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.bar{gap:10px}.logo{font-size:18px}.w{padding:0 14px}.card h3{font-size:14px}.card .row{flex-direction:column;align-items:stretch;gap:8px}}
+</style>
+</head>
+<body>
+<div class="ann" data-t="ship"></div>
+<header><div class="w bar">
+<a class="logo" href="#top">Verra Lab</a>
+<nav class="menu"><a href="#range" data-t="shop"></a><a href="#why" data-t="why"></a><a href="#faq" data-t="faqn"></a><a href="#contact" data-t="contactn"></a></nav>
+<div class="lang"><button data-lang="en">EN</button><button data-lang="nl">NL</button></div>
+<button class="btn sm" id="openCart"><span data-t="cart"></span> (<span id="count">0</span>)</button>
+</div></header>
+
+<main id="top" class="w">
+<div class="hero">
+<div><h1 data-t="h1"></h1><p data-t="lead"></p><a class="btn" href="#range" data-t="more"></a></div>
+<img src="/.netlify/images?url=/img/hero.png&w=560&fm=webp" data-d="img/hero.png" onerror="imgFail(this)" width="928" height="696" alt="BPC-157 + TB-500 vials on a lab bench next to a certificate of analysis" fetchpriority="high">
+</div>
+<div class="trust">
+<div><b>✓</b><span data-t="t1"></span></div><div><b>✓</b><span data-t="t2"></span></div><div><b>✓</b><span data-t="t3"></span></div><div><b>✓</b><span data-t="t4"></span></div>
+</div>
+
+<section id="range">
+<div class="sh"><h2 data-t="h2a"></h2><p data-t="rp"></p></div>
+<div class="tabs" id="tabs"></div>
+<div class="grid" id="grid"></div>
+<p class="notice" data-t="notice"></p>
+</section>
+
+<section id="why">
+<div class="sh"><h2 data-t="h2b"></h2></div>
+<div class="two">
+<div class="blk"><h3 data-t="b1h"></h3><p data-t="b1p"></p><ul><li data-t="b1a"></li><li data-t="b1b"></li><li data-t="b1c"></li></ul></div>
+<div class="blk"><h3 data-t="b2h"></h3><p data-t="b2p"></p><ul><li data-t="b2a"></li><li data-t="b2b"></li><li data-t="b2c"></li></ul></div>
+</div>
+</section>
+
+<section>
+<div class="sh"><h2 data-t="h2c"></h2></div>
+<table class="cmp">
+<tr><th></th><th data-t="c1h"></th><th>Verra Lab</th></tr>
+<tr><td data-t="r1"></td><td data-t="c1a"></td><td data-t="c2a"></td></tr>
+<tr><td data-t="r2"></td><td data-t="c1b"></td><td data-t="c2b"></td></tr>
+<tr><td data-t="r3"></td><td data-t="c1c"></td><td data-t="c2c"></td></tr>
+<tr><td data-t="r4"></td><td data-t="c1d"></td><td data-t="c2d"></td></tr>
+</table>
+</section>
+
+<section id="faq">
+<div class="sh"><h2 data-t="h2d"></h2></div>
+<details><summary data-t="q1"></summary><p data-t="a1"></p></details>
+<details><summary data-t="q2"></summary><p data-t="a2"></p></details>
+<details><summary data-t="q3"></summary><p data-t="a3"></p></details>
+<details><summary data-t="q4"></summary><p data-t="a4"></p></details>
+<details><summary data-t="q5"></summary><p data-t="a5"></p></details>
+</section>
+
+<section id="contact">
+<div class="contact">
+<div><h2 data-t="h2e"></h2><a class="btn" id="wa" target="_blank" rel="noopener" data-t="wat"></a></div>
+<div><b>Rotterdam</b><br>Voorbeeldstraat 12<br>3011 AB Rotterdam<br><br><b data-t="hoursh"></b><br><span data-t="hours"></span><br><br>hello@verralab.example<br>+31 10 000 0000</div>
+</div>
+</section>
+</main>
+
+<footer><div class="w fc">
+<div><b>Verra Lab</b><span data-t="fnote"></span></div>
+<div><b data-t="shop"></b><a href="#range" data-go="single" data-t="single"></a><a href="#range" data-go="blend" data-t="blend"></a><a href="#range" data-go="supplies" data-t="supplies"></a></div>
+<div><b data-t="info"></b><a href="#why" data-t="why"></a><a href="#faq" data-t="faqn"></a></div>
+<div><b>Legal</b><a href="#top" data-t="terms"></a><a href="#top" data-t="privacy"></a><a href="#top">© 2026 Verra Lab</a></div>
+</div></footer>
+
+<div class="layer" id="cartLayer"><div class="panel" role="dialog">
+<button class="x" data-close aria-label="Close">×</button>
+<h2 data-t="cart"></h2>
+<div id="lines"></div>
+<div style="margin-top:auto;padding-top:16px">
+<div class="line" style="border:0"><span data-t="sub"></span><b id="sub"></b></div>
+<a class="btn" id="checkout" style="display:block" target="_blank" rel="noopener" data-t="order"></a>
+</div></div></div>
+<div class="layer" id="prodLayer"><div class="panel" role="dialog" id="prodPanel"></div></div>
+
+<script>
+var WA="31600000000",L="en";
+try{var sl=localStorage.getItem("vl-lang");if(sl)L=sl;else if((navigator.language||"").slice(0,2)==="nl")L="nl"}catch(e){}
+var T={
+en:{shop:"Shop",why:"Why Verra",faqn:"FAQ",contactn:"Contact",cart:"Cart",
+ship:"Free shipping above €150 · Shipped from Rotterdam",
+t1:"COA for every batch",t2:"HPLC purity ≥98%",t3:"Stored at −20 °C",t4:"Replies within 1 working day",
+single:"Single peptides",blend:"Blends",supplies:"Supplies",all:"All",
+tag:"Research peptides",h1:"Lab-grade peptides, documented to the batch.",
+lead:"Verra Lab supplies BPC-157 and TB-500 for laboratory research from Rotterdam. Every batch is tested by an independent lab and ships with its own certificate.",
+more:"Shop all products",
+h2a:"All products",rp:"Eight products, each with a purity figure, batch number and certificate.",
+notice:"All products are sold as in vitro research material. Not for human or animal consumption, diagnosis, treatment or therapy. Buyers are responsible for following local regulations.",
+h2b:"Two ways to buy",
+b1h:"Singles",b1p:"For labs that want to set their own ratios and concentrations.",
+b1a:"5 mg and 10 mg lyophilised vials",b1b:"Purity ≥98% by HPLC",b1c:"COA matched to the batch number",
+b2h:"Blends",b2p:"For labs that already work with the BPC-157 and TB-500 pairing.",
+b2a:"10 mg (5 + 5) and 20 mg (10 + 10)",b2b:"Each component tested separately",b2c:"One vial, one label, one report",
+h2c:"Verra Lab compared with a typical vendor",c1h:"Typical vendor",
+r1:"Lab report",r2:"Shipping",r3:"Labelling",r4:"Support",
+c1a:"A generic report for the product line",c1b:"Ships at room temperature",c1c:"No batch number on the vial",c1d:"Replies in a week",
+c2a:"A report for the exact batch you receive",c2b:"Stored at −20 °C, shipped with gel packs",c2c:"Batch number on vial and COA",c2d:"Replies within one working day",
+h2d:"Frequently asked questions",
+q1:"Is a COA included?",a1:"Yes. The batch number on the vial label matches the one on the COA sent with your order.",
+q2:"How should vials be stored?",a2:"Lyophilised powder goes in a −20 °C freezer, away from direct light. Let the vial reach room temperature before opening.",
+q3:"What does shipping cost?",a3:"€5.95 in the Netherlands, €9.95 to the rest of the EU. Free above €150.",
+q4:"Can I return an order?",a4:"Vials damaged in transit are replaced if reported with a photo within 48 hours. Opened vials cannot be returned.",
+q5:"Can these products be consumed?",a5:"No. They are laboratory research materials, and we do not give usage guidance for people.",
+h2e:"Questions before you order?",wat:"Message on WhatsApp",hoursh:"Opening hours",hours:"Mon–Fri, 09:00–17:00 CET",
+fnote:"Research peptides, shipped from Rotterdam.",info:"Info",terms:"Terms &amp; conditions",privacy:"Privacy policy",
+sub:"Subtotal",order:"Order via WhatsApp",empty:"Your cart is empty.",add:"Add to cart",addc:"Add to cart",
+lab:"Research use only. Not for human or animal consumption.",
+comp:"Composition",pur:"Purity",form:"Form",stor:"Storage",pack:"Packaging",
+purv:"≥98% HPLC",purb:"≥98% HPLC, each component",formv:"White lyophilised powder",storv:"−20 °C before reconstitution",
+packv:function(m){return "Glass vial "+m+" mL, aluminium cap"},
+bw:"Sterile water, 0.9% benzyl alcohol",bwc:"For laboratory use",kitc:"25 swabs, 10 syringes, 20 labels",
+mg:"lyophilised powder",purl:"Purity ≥98%",msg:"Hello Verra Lab, I would like to order:"},
+nl:{shop:"Shop",why:"Waarom Verra",faqn:"Veelgesteld",contactn:"Contact",cart:"Winkelwagen",
+ship:"Gratis verzending boven €150 · Verzonden vanuit Rotterdam",
+t1:"COA bij elke batch",t2:"HPLC-zuiverheid ≥98%",t3:"Bewaard op −20 °C",t4:"Antwoord binnen 1 werkdag",
+single:"Losse peptiden",blend:"Blends",supplies:"Benodigdheden",all:"Alles",
+tag:"Onderzoekspeptiden",h1:"Peptiden van laboratoriumkwaliteit, gedocumenteerd per batch.",
+lead:"Verra Lab levert BPC-157 en TB-500 voor laboratoriumonderzoek vanuit Rotterdam. Elke batch wordt door een onafhankelijk lab getest en wordt geleverd met een eigen certificaat.",
+more:"Bekijk alle producten",
+h2a:"Alle producten",rp:"Acht producten, elk met zuiverheidspercentage, batchnummer en certificaat.",
+notice:"Alle producten worden verkocht als in-vitro onderzoeksmateriaal. Niet voor consumptie door mens of dier, diagnose, behandeling of therapie. Kopers moeten zelf de lokale regelgeving naleven.",
+h2b:"Twee manieren om te kopen",
+b1h:"Losse vials",b1p:"Voor labs die zelf verhoudingen en concentraties bepalen.",
+b1a:"Gevriesdroogde vials van 5 en 10 mg",b1b:"Zuiverheid ≥98% via HPLC",b1c:"COA gekoppeld aan het batchnummer",
+b2h:"Blends",b2p:"Voor labs die al met de combinatie BPC-157 en TB-500 werken.",
+b2a:"10 mg (5 + 5) en 20 mg (10 + 10)",b2b:"Elk onderdeel apart getest",b2c:"Eén vial, één etiket, één rapport",
+h2c:"Verra Lab vergeleken met een gemiddelde leverancier",c1h:"Gemiddelde leverancier",
+r1:"Labrapport",r2:"Verzending",r3:"Etikettering",r4:"Service",
+c1a:"Een algemeen rapport voor de productlijn",c1b:"Verzending op kamertemperatuur",c1c:"Geen batchnummer op de vial",c1d:"Antwoord binnen een week",
+c2a:"Een rapport voor de batch die u ontvangt",c2b:"Bewaard op −20 °C, verzonden met koelelementen",c2c:"Batchnummer op vial en COA",c2d:"Antwoord binnen één werkdag",
+h2d:"Veelgestelde vragen",
+q1:"Zit er een COA bij?",a1:"Ja. Het batchnummer op het vialetiket komt overeen met het nummer op het COA dat u bij de bestelling ontvangt.",
+q2:"Hoe bewaar ik de vials?",a2:"Gevriesdroogd poeder gaat in de vriezer op −20 °C, uit direct licht. Laat de vial op kamertemperatuur komen voordat u hem opent.",
+q3:"Wat kost verzending?",a3:"€5,95 binnen Nederland, €9,95 naar de rest van de EU. Gratis boven €150.",
+q4:"Kan ik retourneren?",a4:"Vials die beschadigd aankomen vervangen wij, mits binnen 48 uur gemeld met een foto. Geopende vials worden niet teruggenomen.",
+q5:"Mag ik deze producten consumeren?",a5:"Nee. Het zijn materialen voor laboratoriumonderzoek en wij geven geen gebruiksadvies voor mensen.",
+h2e:"Vragen voordat u bestelt?",wat:"Stuur een WhatsApp",hoursh:"Openingstijden",hours:"Ma–vr, 09:00–17:00 uur",
+fnote:"Onderzoekspeptiden, verzonden vanuit Rotterdam.",info:"Info",terms:"Algemene voorwaarden",privacy:"Privacybeleid",
+sub:"Subtotaal",order:"Bestel via WhatsApp",empty:"Uw winkelwagen is leeg.",add:"Toevoegen",addc:"In winkelwagen",
+lab:"Uitsluitend voor onderzoek. Niet voor consumptie door mens of dier.",
+comp:"Samenstelling",pur:"Zuiverheid",form:"Vorm",stor:"Bewaring",pack:"Verpakking",
+purv:"≥98% HPLC",purb:"≥98% HPLC, per component",formv:"Wit gevriesdroogd poeder",storv:"−20 °C vóór reconstitutie",
+packv:function(m){return "Glazen vial "+m+" mL, aluminium dop"},
+bw:"Steriel water, 0,9% benzylalcohol",bwc:"Voor laboratoriumgebruik",kitc:"25 alcoholdoekjes, 10 spuiten, 20 etiketten",
+mg:"gevriesdroogd poeder",purl:"Zuiverheid ≥98%",msg:"Hallo Verra Lab, ik wil graag bestellen:"}};
+var P=[
+{id:"bpc5",n:"BPC-157",mg:"5 mg",c:"single",p:29,v:3,k:"BPC-157 (15 aa)"},
+{id:"bpc10",n:"BPC-157",mg:"10 mg",c:"single",p:49,v:5,k:"BPC-157 (15 aa)"},
+{id:"tb5",n:"TB-500",mg:"5 mg",c:"single",p:34,v:3,k:"TB-500"},
+{id:"tb10",n:"TB-500",mg:"10 mg",c:"single",p:59,v:5,k:"TB-500"},
+{id:"blend10",n:"BPC-157 + TB-500",mg:"10 mg (5 + 5)",c:"blend",p:59,v:5,k:"BPC-157 5 mg, TB-500 5 mg",b:1},
+{id:"blend20",n:"BPC-157 + TB-500",mg:"20 mg (10 + 10)",c:"blend",p:99,v:10,k:"BPC-157 10 mg, TB-500 10 mg",b:1},
+{id:"bw",n:"Bacteriostatic Water",mg:"30 mL",c:"supplies",p:9,w:1},
+{id:"kit",n:"Lab Kit",mg:"",c:"supplies",p:12,w:2}];
+var cart={},cat="all";
+try{var sv=localStorage.getItem("vl-cart");if(sv)cart=JSON.parse(sv)||{}}catch(e){}
+function t(k){return T[L][k]}
+function $(i){return document.getElementById(i)}
+function rp(n){return new Intl.NumberFormat(L==="nl"?"nl-NL":"en-GB",{style:"currency",currency:"EUR"}).format(n)}
+function save(){try{localStorage.setItem("vl-cart",JSON.stringify(cart))}catch(e){}}
+function imgFail(i){if(!i.dataset.f&&i.dataset.d){i.dataset.f=1;i.removeAttribute("srcset");i.src=i.dataset.d}else{i.onerror=null;i.style.visibility="hidden"}}
+function find(id){return P.filter(function(x){return x.id===id})[0]}
+function sp(x){return x.w===2?t("kitc"):x.w===1?t("bwc"):x.mg}
+function im(id,w){return "/.netlify/images?url=/img/"+id+".png&w="+w+"&fm=webp"}
+function photo(x,w,cls){return '<img class="'+(cls||"ph")+'" src="'+im(x.id,w)+'" srcset="'+im(x.id,Math.round(w/2))+' '+Math.round(w/2)+'w, '+im(x.id,w)+' '+w+'w" sizes="'+(cls?"48px":"(max-width:600px) 50vw, 240px")+'" data-d="img/'+x.id+'.png" onerror="imgFail(this)" width="1024" height="1024" loading="lazy" decoding="async" alt="'+x.n+(x.mg?" "+x.mg:"")+'">'}
+function statics(){document.documentElement.lang=L;document.querySelectorAll("[data-t]").forEach(function(e){e.innerHTML=t(e.dataset.t)});
+document.querySelectorAll("[data-lang]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===L)});
+$("wa").href="https://wa.me/"+WA;
+document.title="Verra Lab – "+(L==="nl"?"Onderzoekspeptiden":"Research Peptides")}
+function tabs(){$("tabs").innerHTML=["all","single","blend","supplies"].map(function(c){return '<button class="tab" aria-pressed="'+(c===cat)+'" data-cat="'+c+'">'+t(c)+'</button>'}).join("")}
+function grid(){$("grid").innerHTML=P.filter(function(x){return cat==="all"||x.c===cat}).map(function(x){
+return '<div class="card" data-open="'+x.id+'">'+photo(x,480)+'<small>'+t(x.c)+'</small><h3>'+x.n+'</h3><p class="sp">'+sp(x)+'</p>'+(x.w?'':'<p class="pu">'+t("purl")+'</p>')+'<div class="row"><span class="price">'+rp(x.p)+'</span><button class="btn sm" data-add="'+x.id+'">'+t("add")+'</button></div></div>'}).join("")}
+function render(){var ids=Object.keys(cart).filter(function(k){return cart[k]>0}),tot=0,n=0;
+$("lines").innerHTML=ids.length?ids.map(function(k){var x=find(k);tot+=x.p*cart[k];n+=cart[k];
+return '<div class="line">'+photo(x,96,"thumb")+'<div style="flex:1"><b>'+x.n+'</b><br><small style="color:var(--mute)">'+sp(x)+'</small><div class="qty"><button data-dec="'+k+'">−</button>'+cart[k]+'<button data-add="'+k+'">+</button></div></div><b>'+rp(x.p*cart[k])+'</b></div>'}).join(""):'<p style="color:var(--mute)">'+t("empty")+'</p>';
+$("count").textContent=n;$("sub").textContent=rp(tot);
+var a=$("checkout");if(ids.length){var m=encodeURIComponent(t("msg")+"\n"+ids.map(function(k){var x=find(k);return "- "+x.n+" "+x.mg+" x"+cart[k]}).join("\n")+"\nSubtotal: "+rp(tot));a.href="https://wa.me/"+WA+"?text="+m;a.style.opacity=1}else{a.removeAttribute("href");a.style.opacity=.4}
+save()}
+function detail(id){var x=find(id),rows;
+if(x.w===1)rows=[[t("comp"),t("bw")],["Volume","30 mL"],[t("stor"),L==="nl"?"Kamertemperatuur":"Room temperature"]];
+else if(x.w===2)rows=[[L==="nl"?"Inhoud":"Contents",t("kitc")]];
+else rows=[[t("comp"),x.k],[t("pur"),x.b?t("purb"):t("purv")],[t("form"),t("formv")],[t("stor"),t("storv")],[t("pack"),t("packv")(x.v)]];
+$("prodPanel").innerHTML='<button class="x" data-close aria-label="Close">×</button>'+photo(x,480)+'<span class="tag" style="align-self:flex-start">'+t(x.c)+'</span><h2>'+x.n+'</h2><p style="color:var(--mute);margin:2px 0 0">'+sp(x)+'</p><table class="tbl">'+rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join("")+'</table><p style="font-size:12.5px;color:var(--mute)">'+t("lab")+'</p><div class="line" style="border:0;margin-top:auto"><b style="font-size:20px">'+rp(x.p)+'</b><button class="btn" data-add="'+x.id+'" data-close>'+t("addc")+'</button></div>';$("prodLayer").classList.add("on")}
+function all(){statics();tabs();grid();render()}
+document.addEventListener("click",function(e){var q=e.target,b;
+if(b=q.closest("[data-lang]")){L=b.dataset.lang;try{localStorage.setItem("vl-lang",L)}catch(x){}all();return}
+if(b=q.closest("[data-add]")){e.stopPropagation();e.preventDefault();var k=b.dataset.add;cart[k]=(cart[k]||0)+1;render();if(b.hasAttribute("data-close"))$("prodLayer").classList.remove("on");return}
+if(b=q.closest("[data-dec]")){cart[b.dataset.dec]--;render();return}
+if(b=q.closest("[data-cat]")){cat=b.dataset.cat;tabs();grid();return}
+if(q.closest("[data-close]")||q.classList.contains("layer")){document.querySelectorAll(".layer").forEach(function(l){l.classList.remove("on")});return}
+if(q.closest("#openCart")){$("cartLayer").classList.add("on");return}
+if(b=q.closest("[data-go]")){cat=b.dataset.go;tabs();grid();return}
+if(b=q.closest("[data-open]")){e.preventDefault();detail(b.dataset.open)}});
+all();
+</script>
+</body>
+</html>
